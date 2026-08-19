@@ -18,6 +18,28 @@ Get-GPO -All
 #Requires: **Import-Module GroupPolicy**
 ```
 
+## Find specific GPO
+##### PowerView
+```powershell
+Get-DomainGPO -Identity "Default Domain Policy"
+```
+##### AD Module
+```
+Get-GPO -Name "Default Domain Policy"
+```
+
+## Find linked GPOs
+##### PowerView
+```powershell
+Get-DomainOU | Get-DomainGPO
+Get-DomainGPO -Properties displayname,gpcfilesyspath
+```
+##### AD Module
+```
+Get-GPO -All
+Get-GPInheritance -Target "OU=Servers,DC=corp,DC=local"
+```
+
 ## Get GPO(s) which use Restricted Groups or groups.xml for interesting users
 ##### PowerView
 ```powershell
