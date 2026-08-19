@@ -1,0 +1,25 @@
+# There's no real AD Module conversion for these:
+```
+Find-LocalAdminAccess
+```
+```
+Find-DomainUserLocation
+```
+```
+Invoke-ShareFinder
+```
+```
+Invoke-FileFinder
+```
+```
+Get-NetLoggedon
+```
+```
+Get-LoggedonLocal
+```
+```
+Get-LastLoggedon
+```
+```
+Get-NetLocalGroup
+```
