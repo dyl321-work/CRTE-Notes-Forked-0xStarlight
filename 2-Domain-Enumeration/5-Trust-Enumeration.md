@@ -1,72 +1,45 @@
-# PowerView Enumeration [ Basic ]
-## Get a list of all domain trusts for the current domain 
+# Trusts
+## Get a list of all domain trusts for the current domain
+##### PowerView
 ```powershell
+Get-DomainTrust
+#or legacy:
 Get-NetDomainTrust
 Get-NetDomainTrust -Domain us.dollarcorp.moneycorp.local
 ```
+##### AD Module
+```
+Get-ADTrust -Filter *
+```
 
 ## Get details about the current forest
+##### PowerView
 ```powershell
 Get-NetForest
 Get-NetForest -Forest eurocorp.local
 ```
+##### AD Module
+```
+
+```
 
 ## Get all domains in the current forest
+##### PowerView
 ```powershell
 Get-NetForestDomain
 Get-NetForestDomain -Forest eurocorp.local
 ```
 
 ## Get all global catalogs for the current forest
+##### PowerView
 ```powershell
 Get-NetForestCatalog
 Get-NetForestCatalog -Forest eurocorp.local
 ```
  
 ## Map trusts of a forest
+##### PowerView
 ```powershell
 Get-NetForestTrust
 Get-NetForestTrust -Forest eurocorp.local
-```
-
----
-
-# PowerView Enumeration [ User Hunting ]
-
-## Find all machines on the current domain where the current user has local admin access
-```powershell
-Find-LocalAdminAccess -Verbose
-```
-
-## Find computers where a domain admin (or specified user/group) has sessions
-```powershell
-Invoke-UserHunter
-Invoke-UserHunter -GroupName "RDPUsers"
-```
-
-
-## To confirm admin access
-```powershell
-Invoke-UserHunter -CheckAccess
-```
-
-## Find computers where a domain admin is logged-in
-```powershell
-Invoke-UserHunter -Stealth
-```
-
-## Find computers where a domain admin (or specified user/group) has sessions
-```powershell
-Find-DomainUserLocation -Verbose
-Find-DomainUserLocation -UserGroupIdentity "StudentUsers"
-```
-
-## Find computers where a domain admin session is available and current user has admin access (uses Test-AdminAccess)
-```powershell
-Find-DomainUserLocation -CheckAccess
-```
-
-## Find computers (File Servers and Distributed File servers) where a domain admin session is available.
-```powershell
-Find-DomainUserLocation –Stealth
 ```
