@@ -1,7 +1,12 @@
 # PowerView Enumeration
 ## Get current domain
+### PowerView
 ```powershell
 Get-NetDomain
+```
+### AD Module
+```powershell
+Test
 ```
 
 ## Get object of another domain
