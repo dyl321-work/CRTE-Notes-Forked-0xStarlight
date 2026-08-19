@@ -1,4 +1,6 @@
 # PowerView Enumeration
+
+# Domain
 ## Get current domain
 ##### PowerView
 ```powershell
@@ -75,7 +77,7 @@ Get-NetDomainController -Domain moneycorp.local
 ```powershell
 Get-ADDomainController -Server moneycorp.local -Filter *
 ```
-
+# Users
 ## Get a list of users in the current domain
 ##### PowerView
 ```powershell
@@ -143,7 +145,7 @@ Find-UserField -SearchField Description -SearchTerm "built"
 ```powershell
 Get-ADUser -Filter 'Description -like "*built*"' -Properties Description
 ```
-
+# Computers
 ## Get a list of computers in the current domain
 ##### PowerView
 ```powershell
