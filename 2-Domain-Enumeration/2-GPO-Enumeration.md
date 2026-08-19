@@ -15,7 +15,7 @@ gpresult /R /V
 ##### AD Module
 ```
 Get-GPO -All
-#(Requires) **Import-Module GroupPolicy**
+#(Requires **Import-Module GroupPolicy**)
 ```
 
 ## Get GPO(s) which use Restricted Groups or groups.xml for interesting users
