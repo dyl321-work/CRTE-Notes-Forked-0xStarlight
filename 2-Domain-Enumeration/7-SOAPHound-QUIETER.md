@@ -6,7 +6,6 @@ SOAPHound.exe --buildcache -c C:\AD\Tools\cache.txt
 ```
 SOAPHound.exe -c C:\AD\Tools\cache.txt --bhdump -o C:\AD\Tools\bloodhound-output --nolaps
 #LAPS is known to be broken for SOAPHound, so we remove it's search using the -nolaps flag
-
 ```
 
     ○ Newer and more op-sec friendly as it avoids LDAP all-together. It uses ADWS instead of LDAP.
