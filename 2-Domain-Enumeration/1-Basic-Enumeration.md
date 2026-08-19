@@ -154,9 +154,28 @@ Get-NetComputer -FullData
 ```
 ##### AD Module
 ```powershell
-
+Get-ADComputer -Filter *
 ```
 
+## Get server OS only
+##### PowerView
+```powershell
+Get-NetComputer -OperatingSystem "*Server*"
+```
+##### AD Module
+```powershell
+Get-ADComputer -Filter 'OperatingSystem -like "*Server*"'
+```
+
+## Get full computer data
+##### PowerView
+```powershell
+Get-NetComputer -FullData
+```
+##### AD Module
+```powershell
+Get-ADComputer -Filter * -Properties *
+```
 
 ## Get all the groups in the current domain
 ##### PowerView
@@ -168,7 +187,7 @@ Get-NetComputer -Domain
 ```
 ##### AD Module
 ```powershell
-
+Get-ADGroup -Filter *
 ```
 
 ## Get all groups containing the word "admin" in group name
@@ -181,7 +200,7 @@ Get-NetGroup -GroupName *admin* -Doamin moneycorp.local
 ```
 ##### AD Module
 ```powershell
-
+Get-ADGroup -Filter 'Name -like "*admin*"'
 ```
 
 ## Get all the members of the Domain Admins group
@@ -193,7 +212,7 @@ Get-NetGroupMember -GroupName "Domain Admins" -Recurse
 ```
 ##### AD Module
 ```powershell
-
+Get-ADGroupMember -Identity "Domain Admins" -Recursive
 ```
 
 ## Get the group membership for a user
@@ -203,7 +222,7 @@ Get-NetGroup -UserName "student1"
 ```
 ##### AD Module
 ```powershell
-
+Get-ADPrincipalGroupMembership -student1
 ```
 
 ## List all the local groups on a machine (needs administrator privs on non-dc machines) 
@@ -226,6 +245,51 @@ Get-NetLocalGroup -ComputerName dcorp-dc.dollarcorp.moneycorp.local -Recurse
 
 ```
 
+# Organisational Units (Very Useful)
+## List All OUs
+##### PowerView
+```powershell
+Get-DomainOU
+```
+##### AD Module
+```powershell
+Get-ADOrganizationalUnit -Filter *
+```
+
+## Find Specific OU
+##### PowerView
+```powershell
+Get-DomainOU -Identity "Servers"
+Get-DomainOU -LDAPFilter '(name=*Server*)'
+```
+##### AD Module
+```powershell
+Get-ADOrganizationalUnit -Filter 'Name -like "*Server*"'
+Get-ADOrganizationalUnit -Identity <DistinguishedName>
+```
+
+## Enumerate Objects in an OU
+##### PowerView
+```powershell
+(Get-DomainOU -Identity "<OU Name>").distinguishedname | % { Get-DomainObject -SearchBase $_ } | select name,samaccounttype
+Get-DomainObject -SearchBase "OU=Servers,DC=corp,DC=local"
+```
+##### AD Module
+```powershell
+Get-ADObject -Filter * -SearchBase "OU=Servers,DC=corp,DC=local"
+```
+
+## Enumerate Users in an OU
+##### PowerView
+```powershell
+Get-DomainUser -SearchBase "OU=Servers,DC=corp,DC=local"
+```
+##### AD Module
+```powershell
+Get-ADUser -Filter * -SearchBase "OU=Servers,DC=corp,DC=local"
+```
+
+# Useful
 ## Get actively logged users on a computer (needs local admin rights on the target)
 ##### PowerView
 ```powershell
