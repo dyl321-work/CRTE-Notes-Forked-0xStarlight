@@ -1,6 +1,6 @@
 # PowerView Enumeration
 ## Get current domain
-#### PowerView
+##### PowerView
 ```powershell
 Get-NetDomain
 ```
@@ -10,7 +10,7 @@ Get-ADDomain
 ```
 
 ## Get object of another domain
-### PowerView
+#### PowerView
 ```poweshell
 Get-NetDomain -Domain moneycorp.local
 ```
