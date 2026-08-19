@@ -1,4 +1,4 @@
-# Trusts
+# Trusts - Current Domain
 ## Get a list of all domain trusts for the current domain
 ##### PowerView
 ```powershell
@@ -42,4 +42,26 @@ Get-NetForestCatalog -Forest eurocorp.local
 ```powershell
 Get-NetForestTrust
 Get-NetForestTrust -Forest eurocorp.local
+```
+
+# Trusts for another Domain and Forest Trusts
+## Trusts for Another Domain
+##### PowerView
+```powershell
+Get-DomainTrust -Domain moneycorp.local
+```
+##### AD Module
+```
+Get-ADTrust -Server moneycorp.local -Filter *
+```
+
+## Forest Trusts
+##### PowerView
+```powershell
+Get-ForestTrust
+Get-NetForestTrust
+```
+##### AD Module
+```
+Get-ADForest
 ```
