@@ -1,5 +1,3 @@
-# PowerView Enumeration
-
 # Domain
 ## Get current domain
 ##### PowerView
